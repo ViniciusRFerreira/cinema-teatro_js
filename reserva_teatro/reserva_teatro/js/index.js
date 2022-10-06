@@ -31,7 +31,7 @@ window.addEventListener("load", () =>{
         //quantidade de zeros antes do número de poltrona
         const zeros = i < 10 ? "00" : i < 100 ? "0" : "";
 
-        const num = document.createTextNode(`[${zeros}$(i)]`);//cria o texto
+        const num = document.createTextNode(`[${zeros}${i}]`);//cria o texto
 
         //define os pais de cada tag criada
         figureCap.appendChild(num);
