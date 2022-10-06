@@ -26,6 +26,24 @@ window.addEventListener("load", () =>{
         : "img/disponivel.jpg";
         imgStatus.className = "poltrona"; //classe com a dimensão da imagem
 
-        const figureCap
+        const figureCap = document.createElement("figcaption");//cria figcaption
+
+        //quantidade de zeros antes do número de poltrona
+        const zeros = i < 10 ? "00" : i < 100 ? "0" : "";
+
+        const num = document.createTextNode(`[${zeros}$(i)]`);//cria o texto
+
+        //define os pais de cada tag criada
+        figureCap.appendChild(num);
+        figure.appendChild(imgStatus);
+        figure.appendChild(figureCap);
+
+        //se i módulo de 24 == 12 (é o corredor: define margem direita 60px)
+        if (i % 24 == 12) figure.style.marginRight = "60px"
+
+        dvPalco.appendChild(figure); //indica que a figura é filha de divPalco
+
+        //se i módulo 24 == 0: o código apos o && será executado (inserido quebra de linha)
+        (i % 24 == 0) && dvPalco.appendChild(document.createElement("br"));
     }
 })
