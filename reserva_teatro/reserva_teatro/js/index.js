@@ -9,10 +9,11 @@ const POLTRONAS = 240;
 const reservadas = [];
 
 window.addEventListener("load", () =>{
-
+    //operador ternário
     //se houver dados salvos em localstorage, faz um split(";") e atribui esses dados ao array, caso contrario, incializamos o array
     const ocupadas = localStorage.getItem("teatroOcupadas")
     ? localStorage.getItem("teatroOcupadas").split(";")
+    : [];
 
     //montar o numero total de poltronas (definidas pela constante)
     for (let i = 1; i <= POLTRONAS; i++){
@@ -20,6 +21,11 @@ window.addEventListener("load", () =>{
         const imgStatus = document.createElement("img"); //cria a tag img
 
         //se a posição estiver ocupada, exibe a imagem ocupada, se não a imagem disponivel
-        imgStatus.src = ocupada.
+        imgStatus.src = ocupadas.includes(i.toString())
+        ? "img/ocupada.jpg"
+        : "img/disponivel.jpg";
+        imgStatus.className = "poltrona"; //classe com a dimensão da imagem
+
+        const figureCap
     }
 })
