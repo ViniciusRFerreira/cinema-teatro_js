@@ -121,15 +121,29 @@ frm.btCancelar.addEventListener("click", () =>{
     ? localStorage.getItem("teatroOcupadas").split(";")
     : [];
 
-    ocupadas[cancelar].split(0);
-
+    console.log(ocupadas)
     for (let i = ocupadas.length -1; i>=0; i--){
 
-        const imgPoltrona = dvPalco.querySelectorAll("img")[ocupadas[i] - 1];
-        imgPoltrona.src = "img/disponivel.jpg"; //modifica a imagem
+        if (ocupadas[i].includes(cancelar)){
+            console.log(ocupadas[i])
+            x = ocupadas[i]
+            parseInt(x)
+            if (ocupadas[x] == cancelar){
+                console.log("ok")
+                ocupadas.slice(ocupadas[x]);
+            
+            const imgPoltrona = dvPalco.querySelectorAll("img")[ocupadas[i] -1];
+            imgPoltrona.src = "img/disponivel.jpg"; //modifica a imagem
+        
+            ocupadas.pop(); //remove do vetor a reserva já alterada
+            break
+            }
+        }
 
-        ocupadas.pop(); //remove do vetor a reserva já alterada
+        
+   
     }
-
+    console.log(ocupadas)
     localStorage.setItem("teatroOcupadas", ocupadas.join(";"));
+    
 })
