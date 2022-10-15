@@ -125,17 +125,17 @@ frm.btCancelar.addEventListener("click", () =>{
     for (let i = ocupadas.length -1; i>=0; i--){
 
         if (ocupadas[i].includes(cancelar)){
-            console.log(ocupadas[i])
-            x = ocupadas[i]
+            console.log(i)
+            x = i
             parseInt(x)
             if (ocupadas[x] == cancelar){
                 console.log("ok")
-                ocupadas.slice(ocupadas[x]);
+                
             
             const imgPoltrona = dvPalco.querySelectorAll("img")[ocupadas[i] -1];
             imgPoltrona.src = "img/disponivel.jpg"; //modifica a imagem
         
-            ocupadas.pop(); //remove do vetor a reserva já alterada
+            ocupadas[x] = -1; //mudando o valor, afim de deixar livre a poltrona
             break
             }
         }
